@@ -1,0 +1,23 @@
+<div class="overflow-hidden relative bg-gray-100 py-4">
+    <div class="flex animate-scroll gap-8">
+        <!-- Primer set de logos -->
+        @for(brand of brands(); track brand.id){
+        <img [src]="brand.image" [alt]="brand.brand"
+            class="h-20 object-contain flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-300" />
+        }
+
+        <!-- Duplicado para el loop sin cortes -->
+        @for(brand of brands(); track brand.id){
+        <img [src]="brand.image" [alt]="brand.brand"
+            class="h-20 object-contain flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-300" />
+        }
+        @for(brand of brands(); track brand.id){
+        <img [src]="brand.image" [alt]="brand.brand"
+            class="h-20 object-contain flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-300" />
+        }
+        @for(brand of brands(); track brand.id){
+        <img [src]="brand.image" [alt]="brand.brand"
+            class="h-20 object-contain flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-300" />
+        }
+    </div>
+</div>

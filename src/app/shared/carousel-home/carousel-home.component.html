@@ -1,0 +1,61 @@
+<div class="relative w-full">
+    <!-- Carousel container -->
+    <div class="overflow-hidden">
+        <div class="flex transition-transform duration-500"
+            [style.transform]="'translateX(-' + currentIndex() * 100 + '%)'">
+            @for (event of eventsInput(); track event.title) {
+            <div class="min-w-full relative">
+                <img [src]="event.image" alt="{{ event.title }}"
+                    class="w-full h-70 md:h-96 lg:h-[32rem] object-cover" />
+
+                <div
+                    class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
+                    <h3 class="text-lg font-bold">{{ event.title }}</h3>
+                    <p class="text-sm">{{ event.date }}</p>
+                    <p class="text-sm flex items-center gap-1">
+                        <span>📍</span> {{ event.location }}
+                    </p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <button (click)="prev()"
+        class="absolute top-1/2 left-4 -translate-y-1/2 bg-black/30 text-white w-8 h-8 rounded-full hover:bg-black/50 flex items-center justify-center z-10 backdrop-blur-sm transition-all">
+        ‹
+    </button>
+
+    <button (click)="next()"
+        class="absolute top-1/2 right-4 -translate-y-1/2 bg-black/30 text-white w-8 h-8 rounded-full hover:bg-black/50 flex items-center justify-center z-10 backdrop-blur-sm transition-all">
+        ›
+    </button>
+
+    <!-- Dots (centered bottom) -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        @for (event of eventsInput(); let i = $index; track i) {
+        <div class="w-2 h-2 rounded-full cursor-pointer transition-all" [class.bg-white]="i === currentIndex()"
+            [class.w-8]="i === currentIndex()" [class.bg-white/50]="i !== currentIndex()" (click)="goToSlide(i)">
+        </div>
+        }
+    </div>
+
+    <!-- Timer Counter (bottom right) -->
+    <div class="absolute bottom-6 right-6 z-10">
+        <div class="relative w-12 h-12">
+            <!-- Círculo de fondo -->
+            <svg class="w-12 h-12 transform -rotate-90">
+                <circle cx="24" cy="24" r="20" stroke="rgba(255,255,255,0.3)" stroke-width="3"
+                    fill="rgba(255,255,255,0.1)" />
+                <circle cx="24" cy="24" r="20" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"
+                    [attr.stroke-dasharray]="125.6" [attr.stroke-dashoffset]="125.6 - (progress() / 100 * 125.6)"
+                    class="transition-all duration-100" />
+            </svg>
+            <!-- Número de segundos -->
+            <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">
+                {{ remainingSeconds() }}s
+            </div>
+        </div>
+    </div>
+</div>
