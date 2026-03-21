@@ -1,0 +1,65 @@
+@if (nota) {
+<article class="max-w-4xl mx-auto px-4 py-16 animate-fade-in">
+
+    <header class="text-center mb-12">
+        <p class="text-[#e5630d] font-bold uppercase tracking-[0.2em] mb-4 text-sm">
+            {{ nota.category }}
+        </p>
+        <h1 class="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-6">
+            {{ nota.title }}
+        </h1>
+        <p class="text-xl text-gray-600 font-medium italic max-w-2xl mx-auto">
+            {{ nota.subtitle }}
+        </p>
+    </header>
+
+    <div class="rounded-3xl overflow-hidden shadow-2xl mb-12 aspect-video">
+        <img [src]="nota.mainImage" [alt]="nota.title" class="w-full h-full object-cover">
+    </div>
+
+    <div class="space-y-8 text-gray-800 text-lg leading-relaxed">
+        @for (block of nota.contentBlocks; track $index) {
+
+        @switch (block.type) {
+
+        @case ('paragraph') {
+        <p class="font-normal">{{ block.text }}</p>
+        }
+
+        @case ('heading') {
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-4 border-l-4 border-[#e5630d] pl-6">
+            {{ block.text }}
+        </h3>
+        }
+
+        @case ('image') {
+        <figure class="my-10">
+            <img [src]="block.url" class="w-full rounded-2xl shadow-lg border border-gray-100">
+            @if (block.caption) {
+            <figcaption class="text-center text-sm text-gray-500 mt-4 italic">
+                — {{ block.caption }}
+            </figcaption>
+            }
+        </figure>
+        }
+
+        @case ('list') {
+        <ul class="space-y-4 my-8">
+            @for (item of block.items; track $index) {
+            <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-[#e5630d] mt-2.5 shrink-0"></span>
+                <span class="text-gray-700 font-medium">{{ item }}</span>
+            </li>
+            }
+        </ul>
+        }
+
+        }
+        }
+    </div>
+</article>
+} @else {
+<div class="min-h-screen flex items-center justify-center">
+    <p class="text-gray-400 font-bold animate-pulse uppercase tracking-widest">Cargando evento...</p>
+</div>
+}

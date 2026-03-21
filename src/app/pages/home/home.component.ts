@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
 import { CarouselHomeComponent } from '../../shared/carousel-home/carousel-home.component';
 import { CarouselNotesComponent } from '../../shared/carousel-notes/carousel-notes.component';
 import { CarouselBrandsComponent } from '../../shared/carousel-brands/carousel-brands.component';
 import { FormBenefitComponent } from '../../shared/form-benefit/form-benefit.component';
+import { AppService } from '../../services/app.service';
+import { EventosService } from '../../services/eventos.service';
 
 
 
@@ -15,6 +17,10 @@ import { FormBenefitComponent } from '../../shared/form-benefit/form-benefit.com
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
+
+  private appService = inject(AppService);
+  private eventsService = inject(EventosService);
+  private cdRef = inject(ChangeDetectorRef);
 
   carouselEvents: EventItem[] = [
     {
@@ -38,72 +44,76 @@ export class HomeComponent {
   ];
 
   events: EventsCarousel[] = [
-    {
-      id: '1',
-      title: 'Festival de Rock en la Ciudad',
-      image: 'https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=1200&q=80'
-    },
-    {
-      id: '2',
-      title: 'Concierto de Jazz Nocturno',
-      image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80'
-    },
-    {
-      id: '3',
-      title: 'Electro Beats Summer Party',
-      image: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1200&q=80'
-    },
-    {
-      id: '4',
-      title: 'Noche de Música Clásica',
-      image: 'https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1200&q=80'
-    }
+
   ];
   novedades: EventsCarousel[] = [
-    {
-      id: 'n1',
-      title: 'Lanzamiento de Nuevo Smartphone',
-      image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80'
-    },
-    {
-      id: 'n2',
-      title: 'Estreno de Película en Cines',
-      image: 'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1200&q=80'
-    },
-    {
-      id: 'n3',
-      title: 'Semana de la Moda Internacional',
-      image: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1200&q=80'
-    },
-    {
-      id: 'n4',
-      title: 'Convención de Videojuegos 2025',
-      image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80'
-    }
+    // {
+    //   id: 'n1',
+    //   title: 'Lanzamiento de Nuevo Smartphone',
+    //   image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80'
+    // },
+    // {
+    //   id: 'n2',
+    //   title: 'Estreno de Película en Cines',
+    //   image: 'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1200&q=80'
+    // },
+    // {
+    //   id: 'n3',
+    //   title: 'Semana de la Moda Internacional',
+    //   image: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1200&q=80'
+    // },
+    // {
+    //   id: 'n4',
+    //   title: 'Convención de Videojuegos 2025',
+    //   image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80'
+    // }
   ];
 
 
   colaboradores: BrandsAgreements[] = [
-    {
-      id: 'n1',
-      brand: 'SportClub',
-      image: '/assets/images/brands/Sponsors_sportclub.png'
-    },
-    {
-      id: 'n2',
-      brand: 'Impsa',
-      image: '/assets/images/brands/Sponsors_IMPSA.png'
-    },
-    {
-      id: 'n3',
-      brand: 'Osep',
-      image: '/assets/images/brands/Sponsors_OSEP.png'
-    },
-    {
-      id: 'Del Puente',
-      brand: 'Convención de Videojuegos 2025',
-      image: '/assets/images/brands/Sponsors_Delpuente.png'
-    }
+
   ];
+
+
+  ngOnInit() {
+    this.appService.getSponsors().subscribe(
+      data => {
+        this.colaboradores = data;
+        this.cdRef.markForCheck();
+      }
+    );
+
+    // 2. Carga de Notas y Filtrado para Carruseles
+    this.eventsService.getNotas().subscribe(notas => {
+
+      // Filtramos y mapeamos las últimas 6 noticias para "Últimos eventos"
+      this.events = notas
+        .filter(n => n.category === 'Eventos') // Filtra por categoría
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Orden descendente (más nuevas primero)
+        .slice(0, 6) // Toma las primeras 6
+        .map(n => ({
+          id: n.id,
+          slug: n.slug,
+          title: n.title,
+          image: n.mainImage
+        }));
+
+      console.log(this.events)
+      // Filtramos y mapeamos para "Novedades" (puedes ajustar el criterio)
+      // this.novedades = notas
+      //   .filter(n => n.category === 'Tips' || n.category === 'Novedades')
+      //   .slice(0, 6)
+      //   .map(n => ({
+      //     id: n.id,
+      //     title: n.title,
+      //     image: n.mainImage
+      //   }));
+
+      this.cdRef.markForCheck(); // Notificamos a OnPush que hay cambios
+    });
+  }
+
+
+
 
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
 import { AppService } from '../../services/app.service';
 
 const BENEFICIOS_ESTANDAR = [
@@ -18,7 +18,7 @@ const BENEFICIOS_ESTANDAR = [
 export class BenefitsComponent {
 
   private appService = inject(AppService);
-
+  private cdRef = inject(ChangeDetectorRef);
 
 
   sponsors: Sponsors[] = [];
@@ -40,7 +40,8 @@ export class BenefitsComponent {
     this.appService.getSponsors().subscribe(
       data => {
         this.sponsors = data;
-        console.log(this.sponsors)
+        console.log(this.sponsors);
+        this.cdRef.markForCheck();
       }
     )
   }

@@ -11,5 +11,8 @@ export class CarouselBrandsComponent {
 
   public brands = input<BrandsAgreements[] | undefined>()
 
+  ngOnInit() {
+    console.log(this.brands, 'alksd')
+  }
 
 }

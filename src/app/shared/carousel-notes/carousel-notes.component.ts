@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-carousel-notes',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './carousel-notes.component.html',
   styleUrl: './carousel-notes.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,7 +16,7 @@ export class CarouselNotesComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    console.log(this.notesCarousel(), 'notas')
   }
 
 }

@@ -1,26 +1,36 @@
 <div class="relative">
     <div class="carousel carousel-center space-x-4 p-4 overflow-x-auto snap-x snap-mandatory lg:hidden">
         @for(note of notesCarousel(); track note.id) {
-        <div class="carousel-item w-[45%] flex-shrink-0 snap-start relative">
-            <img [src]="note.image" [alt]="note.title" class="rounded-box w-full h-64 object-cover" />
+        <div [routerLink]="['/event', note.slug]"
+            class="carousel-item w-[75%] sm:w-[50%] flex-shrink-0 snap-start relative rounded-box overflow-hidden shadow-lg border border-white/10 cursor-pointer">
+
+            <img [src]="note.image" [alt]="note.title" class="w-full h-80 object-cover brightness-[0.85]" />
 
             <div
-                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-3 text-white rounded-b-box">
-                <h3 class="text-sm font-semibold whitespace-normal line-clamp-2">{{ note.title }}</h3>
+                class="absolute inset-0 bg-gradient-to-t from-black/100 via-black/50 to-transparent flex flex-col justify-end p-5">
+                <h3
+                    class="text-lg font-bold text-white leading-tight drop-shadow-[0_2px_3px_rgba(0,0,0,1)] line-clamp-2">
+                    {{ note.title }}
+                </h3>
             </div>
         </div>
         }
     </div>
 
-    <div class="hidden lg:grid lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 p-4">
+    <div class="hidden lg:grid lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 p-6">
         @for(note of notesCarousel(); track note.id) {
-        <div class="relative group cursor-pointer">
+        <div [routerLink]="['/event', note.slug]"
+            class="relative group cursor-pointer overflow-hidden rounded-box shadow-lg hover:shadow-2xl transition-all duration-300 bg-black">
+
             <img [src]="note.image" [alt]="note.title"
-                class="rounded-box w-full h-80 object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+                class="w-full h-96 object-cover opacity-90 group-hover:scale-110 transition-all duration-500" />
 
             <div
-                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-3 text-white rounded-b-box">
-                <h3 class="text-base font-semibold whitespace-normal line-clamp-2">{{ note.title }}</h3>
+                class="absolute inset-0 bg-gradient-to-t from-black/100 via-black/50 to-transparent flex flex-col justify-end p-5">
+                <h3
+                    class="text-lg font-bold text-white leading-tight drop-shadow-[0_2px_3px_rgba(0,0,0,1)] line-clamp-2 transition-transform duration-300 group-hover:-translate-y-1">
+                    {{ note.title }}
+                </h3>
             </div>
         </div>
         }

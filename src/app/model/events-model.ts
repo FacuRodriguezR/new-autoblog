@@ -7,18 +7,20 @@ interface EventItem {
 
 interface EventsCarousel {
     id: string,
+    slug: string,
     title: string,
     image: string,
 
 }
 interface BrandsAgreements {
-    id: string,
+    id: number,
     brand: string,
     image: string,
 
 }
 
 interface Sponsors {
-    name: string,
+    id: number,
+    brand: string,
     image: string
 }

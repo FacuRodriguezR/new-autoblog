@@ -1,0 +1,26 @@
+<div class="max-w-7xl mx-auto px-4 py-12">
+    <div class="flex justify-center mb-12">
+        <h2 class="text-5xl font-black text-[#e5630d] uppercase tracking-tighter">
+            Eventos
+        </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        @for (nota of notas; track nota.id) {
+        <div [routerLink]="['/event', nota.slug]"
+            class="group cursor-pointer bg-white rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+
+            <div class="aspect-[4/3] overflow-hidden">
+                <img [src]="nota.mainImage" [alt]="nota.title"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+
+            <div class="p-5 text-center">
+                <h3 class="text-xl font-bold text-gray-800 tracking-tight leading-tight">
+                    {{ nota.title }}
+                </h3>
+            </div>
+        </div>
+        }
+    </div>
+</div>
