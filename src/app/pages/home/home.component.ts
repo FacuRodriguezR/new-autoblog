@@ -111,6 +111,34 @@ export class HomeComponent {
 
       this.cdRef.markForCheck(); // Notificamos a OnPush que hay cambios
     });
+    // 4. Carga de Tips y Filtrado para Carruseles
+    this.eventsService.getTips().subscribe(notas => {
+
+      // Filtramos y mapeamos las últimas 6 noticias para "Últimos eventos"
+      this.novedades = notas
+        .filter(n => n.category === 'Tips') // Filtra por categoría
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Orden descendente (más nuevas primero)
+        .slice(0, 6) // Toma las primeras 6
+        .map(n => ({
+          id: n.id,
+          slug: n.slug,
+          title: n.title,
+          image: n.mainImage
+        }));
+
+      console.log(this.events)
+      // Filtramos y mapeamos para "Novedades" (puedes ajustar el criterio)
+      // this.novedades = notas
+      //   .filter(n => n.category === 'Tips' || n.category === 'Novedades')
+      //   .slice(0, 6)
+      //   .map(n => ({
+      //     id: n.id,
+      //     title: n.title,
+      //     image: n.mainImage
+      //   }));
+
+      this.cdRef.markForCheck(); // Notificamos a OnPush que hay cambios
+    });
   }
 
 

@@ -7,9 +7,9 @@
             </div>
             <div class="hidden md:block">
                 <ul class="flex items-center space-x-8">
-                    <li><a href="#" class="text-white hover:text-gray-300 transition">Consejos útiles</a></li>
+                    <li><a routerLink="/tips" class="text-white hover:text-gray-300 transition">Consejos útiles</a></li>
                     <li><a routerLink="events" class="text-white hover:text-gray-300 transition">Eventos</a></li>
-                    <li><a href="#" class="text-white hover:text-gray-300 transition">Novedades</a></li>
+                    <li><a routerLink="mcdonalds" class="text-white hover:text-gray-300 transition">Novedades</a></li>
                     <li><a routerLink="benefits" class="text-white hover:text-gray-300 transition">Promociones y
                             Beneficios</a></li>
                 </ul>
@@ -25,9 +25,10 @@
         </div>
         <div class="mobile-menu md:hidden transition-all duration-300" [class.hidden]="!showMobileMenu">
             <ul class="mt-4 space-y-4">
-                <li><a href="#" class="block px-4 py-2 text-white bg-gray-900 rounded">Consejos útiles</a></li>
+                <li><a routerLink="/tips" class="block px-4 py-2 text-white bg-gray-900 rounded">Consejos útiles</a>
+                </li>
                 <li><a routerLink="events" class="block px-4 py-2 text-white bg-gray-900 rounded">Eventos</a></li>
-                <li><a href="#" class="block px-4 py-2 text-white bg-gray-900 rounded">Novedades</a></li>
+                <li><a routerLink="mcdonalds" class="block px-4 py-2 text-white bg-gray-900 rounded">Novedades</a></li>
                 <li><a routerLink="benefits" class="block px-4 py-2 text-white bg-gray-900 rounded">Promociones y
                         Beneficios</a></li>
             </ul>

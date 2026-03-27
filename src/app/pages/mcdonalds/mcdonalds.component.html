@@ -1,0 +1,84 @@
+<section class="bg-gray-50 py-16 px-4 font-['Montserrat']">
+    <div class="max-w-7xl mx-auto">
+
+        <header class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">
+                Con tu compra en Autoshop accede a súper descuentos en <span class="text-yellow-500">McDonald's</span>
+            </h2>
+            <div class="w-24 h-1.5 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
+        </header>
+
+        @if (mcProducts.length > 0) {
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            @for (item of mcProducts; track item.id) {
+            <article
+                class="group bg-white rounded-3xl p-5 border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center">
+
+                <div [class.bg-slate-900]="item.highlight" [class.text-yellow-400]="item.highlight"
+                    class="self-end bg-yellow-400 text-slate-900 text-[10px] font-black px-3 py-1 rounded-full tracking-widest shadow-sm mb-2">
+                    {{ item.discount }}
+                </div>
+
+                <div
+                    class="relative w-full aspect-square flex items-center justify-center bg-gray-50 rounded-2xl mb-6 overflow-hidden">
+                    <img [src]="item.image" [alt]="item.title"
+                        class="w-4/5 h-4/5 object-contain group-hover:scale-110 transition-transform duration-500">
+
+                    @if (item.isCombo) {
+                    <div
+                        class="absolute bottom-2 right-2 bg-white/80 backdrop-blur-sm p-1 rounded-lg text-xs font-bold">
+                        +</div>
+                    }
+                </div>
+
+                <div class="text-center flex-grow">
+                    <h3 class="text-sm font-extrabold text-slate-800 leading-tight uppercase tracking-tight">
+                        {{ item.title }}
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-2 font-medium">
+                        {{ item.description }}
+                    </p>
+                </div>
+
+                <div [class]="item.accentColor === 'blue' ? 'bg-blue-500' : 'bg-yellow-400'"
+                    class="w-8 h-1 mt-6 rounded-full  group-hover:opacity-100 group-hover:w-16 transition-all">
+                </div>
+            </article>
+            }
+        </div>
+        } @else {
+        <div class="text-center text-slate-400">Cargando beneficios...</div>
+        }
+
+    </div>
+    <footer class="mt-24 pb-12 flex flex-col items-center gap-10 border-t border-gray-200 pt-12">
+
+        <div class="max-w-2xl text-center space-y-2">
+            <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-[0.2em] leading-relaxed">
+                * Para acceder a este beneficio recordá presentar tu ticket de compra de <span
+                    class="text-slate-600 font-bold">AutoShop</span>.
+            </p>
+            <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-[0.2em]">
+                * Promoción válida únicamente en sucursal <span class="text-slate-600 font-bold">McDonald's de La
+                    Barraca
+                    Mall</span>.
+            </p>
+        </div>
+
+        <div class="flex items-center justify-center gap-12 md:gap-20">
+            <div class="hover:scale-105 transition-transform duration-300">
+                <img src="assets/images/icons/As_Fav.png" alt="Autoshop Logo"
+                    class="h-14 md:h-20 w-auto object-contain drop-shadow-sm">
+            </div>
+
+            <div class="w-px h-12 bg-gray-200 rotate-12"></div>
+
+            <div class="hover:scale-105 transition-transform duration-300">
+                <img src="assets/images/mcDonalds-images/logo-mcDonalds.svg" alt="McDonald's Logo"
+                    class="h-14 md:h-20 w-auto object-contain drop-shadow-sm">
+            </div>
+        </div>
+
+
+    </footer>
+</section>

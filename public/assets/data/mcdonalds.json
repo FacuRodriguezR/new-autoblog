@@ -1,0 +1,85 @@
+[
+  {
+    "id": 1,
+    "title": "Combo Tasty Doble",
+    "description": "Combo Mediano",
+    "discount": "30% OFF",
+    "image": "assets/images/mcDonalds-images/tasty-doble.jpeg",
+    "category": "burger"
+  },
+  {
+    "id": 2,
+    "title": "Combo Cheddar Melt Simple",
+    "description": "Combo Mediano",
+    "discount": "30% OFF",
+    "image": "assets/images/mcDonalds-images/cheddar-melt.jpeg",
+    "category": "burger"
+  },
+  {
+    "id": 3,
+    "title": "Combo Big Mac",
+    "description": "El clásico de siempre",
+    "discount": "30% OFF",
+    "image": "assets/images/mcDonalds-images/big-mac.jpeg",
+    "category": "burger"
+  },
+  {
+    "id": 4,
+    "title": "Combo Tasty Feat Cuarto Doble",
+    "description": "Combo Mediano",
+    "discount": "30% OFF",
+    "image": "assets/images/mcDonalds-images/tasty doble-feat.jpeg",
+    "category": "burger"
+  },
+  {
+    "id": 5,
+    "title": "Combo Triple Hamburguesa con Queso",
+    "description": "Combo Mediano",
+    "discount": "30% OFF",
+    "image": "assets/images/mcDonalds-images/triple-queso.jpeg",
+    "category": "burger"
+  },
+  {
+    "id": 6,
+    "title": "2 Cajitas Feliz",
+    "description": "Diversión x2",
+    "discount": "25% OFF",
+    "image": "assets/images/mcDonalds-images/cajita-feliz.jpeg",
+    "category": "kids",
+    "accentColor": "blue"
+  },
+  {
+    "id": 7,
+    "title": "Cajita Feliz + Combo Doble Cuarto de Libra",
+    "description": "Combo Familiar",
+    "discount": "25% OFF",
+    "image": "assets/images/mcDonalds-images/doble-cuarto.jpeg",
+    "category": "kids",
+    "accentColor": "blue",
+    "isCombo": true
+  },
+  {
+    "id": 8,
+    "title": "Sundae a Elección",
+    "description": "¡Súper Descuento!",
+    "discount": "40% OFF",
+    "image": "assets/images/mcDonalds-images/sundae.png",
+    "category": "dessert"
+  },
+  {
+    "id": 9,
+    "title": "McFlurry Oreo",
+    "description": "Postre Helado",
+    "discount": "30% OFF",
+    "image": "assets/images/mcDonalds-images/flurry-oreo.png",
+    "category": "dessert"
+  },
+  {
+    "id": 10,
+    "title": "McShake a Elección",
+    "description": "Batido Cremoso",
+    "discount": "30% OFF",
+    "image": "assets/images/mcDonalds-images/mcshake.png",
+    "category": "dessert"
+  }
+]
