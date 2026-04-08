@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-carousel-brands',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './carousel-brands.component.html',
   styleUrl: './carousel-brands.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

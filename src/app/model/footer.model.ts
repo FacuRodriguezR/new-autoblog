@@ -4,6 +4,7 @@ export interface Branch {
     phones: string[];
     schedule: string;
     isNew?: boolean;
+    link: string
 }
 
 export interface CityGroup {

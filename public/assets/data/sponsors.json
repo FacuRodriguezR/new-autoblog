@@ -40,5 +40,7 @@
   { "id": 36, "brand": "SportVision", "image": "assets/sponsors/Sponsors_SportVision.png" },
   { "id": 37, "brand": "Tiro Federal", "image": "assets/sponsors/Sponsors_Tiro Federal.png" },
   { "id": 38, "brand": "Universitaria", "image": "assets/sponsors/Sponsors_Universitaria.png" },
-  { "id": 39, "brand": "URC", "image": "assets/sponsors/Sponsors_URC.png" }
+  { "id": 39, "brand": "URC", "image": "assets/sponsors/Sponsors_URC.png" },
+  { "id": 40, "brand": "Bonda", "image": "assets/sponsors/sponsors_Bonda.png" },
+  { "id": 41, "brand": "Nomade", "image": "assets/sponsors/sponsors_nomade.png" }
 ]

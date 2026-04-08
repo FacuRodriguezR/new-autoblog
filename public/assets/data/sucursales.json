@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Casa Central",
+    "adress": "Acceso Sur y Rodríguez Peña Diamante 371 - Godoy Cruz - CP5501",
+    "telephone": "2612052000",
+    "telephoneFace": "261 205-2000",
+    "email": "suc.mendoza@redautoshop.com.ar",
+    "instagram": "https://www.instagram.com/autoshop.ar/",
+    "facebook": "https://www.facebook.com/redautoshop",
+    "province": "Mendoza",
+    "gmap": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6697.901152703698!2d-68.82466968472231!3d-32.925904019073805!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb625928a75704fcd!2sAuto+Shop!5e0!3m2!1ses!2sar!4v1560289309201!5m2!1ses!2sar",
+    "schedules": "Lunes a Viernes de 08:30h a 19:00h y Sábado de 08:30h a 13:00h",
+    "id": "MENDOZA"
+  },
+  {
+    "name": "San Martín Sur",
+    "adress": "Av. San Martín Sur 901 - Godoy Cruz - CP5501",
+    "telephone": "2612480424",
+    "telephoneFace": "261 248-0424",
+    "email": "suc.godoycruz@redautoshop.com.ar",
+    "instagram": "https://www.instagram.com/autoshop.ar/",
+    "facebook": "https://www.facebook.com/redautoshop",
+    "province": "Mendoza",
+    "gmap": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6697.077167116086!2d-68.8538604483666!3d-32.936787122418345!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0b5446141029%3A0x946a8351214f7f2d!2sAutoShop%20San%20Martin%20Sur!5e0!3m2!1ses-419!2sar!4v1705929861288!5m2!1ses-419!2sar",
+    "schedules": "Lunes a Viernes de 08:30h a 19:00h y Sábado de 08:30h a 13:00h",
+    "id": "SANMARTIN"
+  },
+  {
+    "name": "Neuquén",
+    "adress": "Perticone 11371 - Neuquén - CP8300",
+    "telephone": "2995127189",
+    "telephoneFace": "299 512-7189",
+    "email": "suc.neuquen@redautoshop.com.ar",
+    "instagram": "https://www.instagram.com/autoshop.ar/",
+    "facebook": "https://www.facebook.com/redautoshop",
+    "province": "Neuquén",
+    "gmap": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3689.4361679451567!2d-68.04569623956523!3d-38.95976502668515!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa0223e411f2e8567!2sAuto%20Shop!5e0!3m2!1ses!2sar!4v1612902623363!5m2!1ses!2sar",
+    "schedules": "Lunes a Viernes de 08:30h a 19:00h y Sábado de 08:30h a 13:00h",
+    "id": "NEUQUEN"
+  },
+  {
+    "name": "Constitución",
+    "adress": "Av. Juan de Garay 1769 esq. Entre Ríos - Constitución - C1153ACC",
+    "telephone": "1132281425",
+    "telephoneFace": "011 3228-1425",
+    "email": "suc.constitucion@redautoshop.com.ar",
+    "instagram": "https://www.instagram.com/autoshop.ar/",
+    "facebook": "https://www.facebook.com/redautoshop",
+    "province": "Capital Federal",
+    "gmap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d976.0714097273407!2d-58.39111703174752!3d-34.62691824657504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb23af6259d9%3A0xd01afe0742cbe8c!2sGuerrini%20Neum%C3%A1ticos%20-%20Auto%20Shop!5e0!3m2!1ses!2sar!4v1569855297460!5m2!1ses!2sar",
+    "schedules": "Lunes a Viernes de 08:00h a 18:00h y Sábado de 08:00h a 13:00h",
+    "id": "GARAY"
+  },
+  {
+    "name": "Balvanera",
+    "adress": "Av. Belgrano 2959 Esq. Dean Funes - Balvanera - C1209AAB",
+    "telephone": "1152323938",
+    "telephoneFace": "011 5232-3938",
+    "email": "suc.balvanera@redautoshop.com.ar",
+    "instagram": "https://www.instagram.com/autoshop.ar/",
+    "facebook": "https://www.facebook.com/redautoshop",
+    "province": "Capital Federal",
+    "gmap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.584801584577!2d-58.40936678477012!3d-34.6146591804567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccbc92c6fe2a1%3A0x5fa226d07771c174!2sAutoShop%20Surcursal%20Almagro!5e0!3m2!1ses-419!2sar!4v1651674365842!5m2!1ses-419!2sar",
+    "schedules": "Lunes a Viernes de 08:00h a 18:00h y Sábado de 08:00h a 13:00h",
+    "id": "BELGRANO"
+  }
+]

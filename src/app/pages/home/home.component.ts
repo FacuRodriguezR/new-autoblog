@@ -5,13 +5,14 @@ import { CarouselBrandsComponent } from '../../shared/carousel-brands/carousel-b
 import { FormBenefitComponent } from '../../shared/form-benefit/form-benefit.component';
 import { AppService } from '../../services/app.service';
 import { EventosService } from '../../services/eventos.service';
+import { RouterLink } from "@angular/router";
 
 
 
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselHomeComponent, CarouselNotesComponent, CarouselBrandsComponent, FormBenefitComponent],
+  imports: [CarouselHomeComponent, CarouselNotesComponent, CarouselBrandsComponent, FormBenefitComponent, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,15 +31,15 @@ export class HomeComponent {
       image: 'assets/images/carousel/03.Marzo2_F_Pc7 (1).jpg',
     },
     {
-      title: 'Rugby Solidario',
-      date: '30/11 · 16h',
-      location: 'Buenos Aires, Argentina',
+      title: 'Descuendo en Mc Donald´s',
+      date: '',
+      location: 'La Barraca Mall, Mendoza',
       image: 'assets/images/carousel/08.Agosto_Pc7.jpg',
     },
     {
-      title: 'Expo Autos',
-      date: '15/12 · 10 a 19h',
-      location: 'Córdoba, Argentina',
+      title: 'Hot Sale',
+      date: 'Del 11 al 13 de Mayo del 2026',
+      location: '',
       image: 'assets/images/carousel/Agosto_Pc_010825.jpg',
     },
   ];

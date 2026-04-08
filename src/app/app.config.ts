@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
@@ -9,8 +9,13 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes), provideClientHydration(withEventReplay()),
+
+    //* withInMemoryScrolling: declarandoló acá al navegar entre componentes, la posicion del scroll va a subir al inicio
+    provideRouter(routes, withInMemoryScrolling({
+      scrollPositionRestoration: 'enabled'
+    })), provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
-    provideClientHydration(withEventReplay()) // ¡Nueva en v21 para mejorar el INP!
+    provideClientHydration(withEventReplay()),
+
   ]
 };

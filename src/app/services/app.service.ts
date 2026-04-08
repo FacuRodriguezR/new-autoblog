@@ -21,4 +21,8 @@ export class AppService {
     return this.http.get<McProduct[]>('assets/data/mcdonalds.json');
   }
 
+  getSucursales(): Observable<any> {
+    return this.http.get<any[]>('/assets/data/sucursales.json');
+  }
+
 }
