@@ -22,30 +22,37 @@ export class EventComponent implements OnInit {
   nota?: Nota;
 
   ngOnInit() {
-    const slug = this.route.snapshot.paramMap.get('slug');
+    // En lugar de snapshot, nos suscribimos al cambio de parámetros
+    this.route.paramMap.subscribe(params => {
+      const slug = params.get('slug');
 
-    if (slug) {
-      this.eventService.getNotaBySlug(slug).subscribe({
-        next: (data) => {
-          this.nota = data;
+      if (slug) {
+        // Opcional: limpiar la nota actual para que se vea el "Cargando" al cambiar
+        this.nota = undefined;
+        this.cdRef.markForCheck();
 
-          // --- CONFIGURACIÓN SEO DINÁMICA ---
-          if (this.nota) {
-            this.seo.setTags(
-              this.nota.title,            // El título de tu evento
-              this.nota.subtitle,           // Una descripción corta para Google
-              this.nota.mainImage    // Imagen para cuando se comparta en redes
-            );
+        this.eventService.getNotaBySlug(slug).subscribe({
+          next: (data) => {
+            this.nota = data;
 
-            // Opcional: Si quieres la URL canónica
-            this.seo.setCanonicalURL(`https://blog.redautoshop.com.ar/event/${slug}`);
+            // --- CONFIGURACIÓN SEO DINÁMICA ---
+            if (this.nota) {
+              this.seo.setTags(
+                this.nota.title,
+                this.nota.subtitle,
+                this.nota.mainImage
+              );
+              this.seo.setCanonicalURL(`https://blog.redautoshop.com.ar/event/${slug}`);
+            }
+
+            this.cdRef.markForCheck(); // Avisar a Angular que hay datos nuevos
+          },
+          error: (err) => {
+            console.error('Error al traer la nota', err);
+            // Podrías redirigir a home si no existe la nota
           }
-          // ----------------------------------
-
-          this.cdRef.markForCheck();
-        },
-        error: (err) => console.error('Error al traer la nota', err)
-      });
-    }
+        });
+      }
+    });
   }
 }

@@ -4,12 +4,7 @@ import { CarouselService } from '../../services/carousel.service';
 import { CommonModule } from '@angular/common';
 
 
-interface EventItem {
-  title: string;
-  date: string;
-  location: string;
-  image: string;
-}
+
 
 @Component({
   selector: 'app-carousel-home',

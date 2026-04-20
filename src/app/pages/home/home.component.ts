@@ -12,7 +12,7 @@ import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselHomeComponent, CarouselNotesComponent, CarouselBrandsComponent, FormBenefitComponent, RouterLink],
+  imports: [CarouselHomeComponent, CarouselNotesComponent, CarouselBrandsComponent, FormBenefitComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,25 +23,25 @@ export class HomeComponent {
   private eventsService = inject(EventosService);
   private cdRef = inject(ChangeDetectorRef);
 
+  tipoEvent = 'event';
+  tipoNovedades = 'tip';
+
   carouselEvents: EventItem[] = [
     {
       title: 'Feria del libro',
       date: '26/11 al 15/12 · 18 a 23h',
       location: 'Mendoza, Argentina',
-      image: 'assets/images/carousel/03.Marzo2_F_Pc7 (1).jpg',
+      image: 'assets/images/carousel/140426_ABlog_pc.webp',
+      imageMobile: 'assets/images/carousel/140426_ABlog_mob.webp', // Agregá la ruta de mobile
     },
     {
-      title: 'Descuendo en Mc Donald´s',
+      title: 'Descuento en Mc Donald´s',
       date: '',
       location: 'La Barraca Mall, Mendoza',
-      image: 'assets/images/carousel/08.Agosto_Pc7.jpg',
+      image: 'assets/images/carousel/010426_nar_pc.webp',
+      imageMobile: 'assets/images/carousel/010426_nar_mob.webp', // Agregá la ruta de mobile
     },
-    {
-      title: 'Hot Sale',
-      date: 'Del 11 al 13 de Mayo del 2026',
-      location: '',
-      image: 'assets/images/carousel/Agosto_Pc_010825.jpg',
-    },
+
   ];
 
   events: EventsCarousel[] = [

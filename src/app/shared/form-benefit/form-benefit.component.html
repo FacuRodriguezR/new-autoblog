@@ -1,7 +1,6 @@
 <div class="bg-azulAs py-12">
     <div class="max-w-6xl mx-auto px-4">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            <!-- Columna izquierda: Título -->
             <div>
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
                     Suma tu empresa<br />
@@ -9,79 +8,108 @@
                 </h1>
             </div>
 
-            <!-- Columna derecha: Formulario -->
             <div>
                 <form [formGroup]="benefitsForm" (ngSubmit)="onSubmit()" class="space-y-4">
-                    <!-- Nombre y Apellido -->
-                    <div>
-                        <label class="block text-gray-300 text-sm mb-2">
-                            Nombre y Apellido*
-                        </label>
-                        <input type="text" formControlName="nombreApellido"
-                            class="w-full px-4 py-3 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                            [class.border-red-500]="benefitsForm.get('nombreApellido')?.invalid && benefitsForm.get('nombreApellido')?.touched" />
-                        <div *ngIf="benefitsForm.get('nombreApellido')?.invalid && benefitsForm.get('nombreApellido')?.touched"
-                            class="text-red-400 text-sm mt-1">
-                            Este campo es requerido
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-300 text-sm mb-2">Empresa*</label>
+                            <input type="text" formControlName="empresa"
+                                class="w-full px-4 py-3 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                [class.border-red-500]="benefitsForm.get('empresa')?.invalid && benefitsForm.get('empresa')?.touched" />
+                            <div *ngIf="benefitsForm.get('empresa')?.invalid && benefitsForm.get('empresa')?.touched"
+                                class="text-red-400 text-sm mt-1">Este campo es requerido</div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 text-sm mb-2">CUIT*</label>
+                            <input type="text" formControlName="cuit"
+                                class="w-full px-4 py-3 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                [class.border-red-500]="benefitsForm.get('cuit')?.invalid && benefitsForm.get('cuit')?.touched" />
+                            <div *ngIf="benefitsForm.get('cuit')?.invalid && benefitsForm.get('cuit')?.touched"
+                                class="text-red-400 text-sm mt-1">Este campo es requerido</div>
                         </div>
                     </div>
 
-                    <!-- Correo -->
-                    <div>
-                        <label class="block text-gray-300 text-sm mb-2">
-                            Correo*
-                        </label>
-                        <input type="email" formControlName="correo"
-                            class="w-full px-4 py-3 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                            [class.border-red-500]="benefitsForm.get('correo')?.invalid && benefitsForm.get('correo')?.touched" />
-                        <div *ngIf="benefitsForm.get('correo')?.invalid && benefitsForm.get('correo')?.touched"
-                            class="text-red-400 text-sm mt-1">
-                            <span *ngIf="benefitsForm.get('correo')?.errors?.['required']">Este campo es
-                                requerido</span>
-                            <span *ngIf="benefitsForm.get('correo')?.errors?.['email']">Ingrese un correo válido</span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-300 text-sm mb-2">Nombre y Apellido*</label>
+                            <input type="text" formControlName="nombreApellido"
+                                class="w-full px-4 py-3 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                [class.border-red-500]="benefitsForm.get('nombreApellido')?.invalid && benefitsForm.get('nombreApellido')?.touched" />
+                            <div *ngIf="benefitsForm.get('nombreApellido')?.invalid && benefitsForm.get('nombreApellido')?.touched"
+                                class="text-red-400 text-sm mt-1">Este campo es requerido</div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 text-sm mb-2">Cargo*</label>
+                            <input type="text" formControlName="cargo"
+                                class="w-full px-4 py-3 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                [class.border-red-500]="benefitsForm.get('cargo')?.invalid && benefitsForm.get('cargo')?.touched" />
+                            <div *ngIf="benefitsForm.get('cargo')?.invalid && benefitsForm.get('cargo')?.touched"
+                                class="text-red-400 text-sm mt-1">Este campo es requerido</div>
                         </div>
                     </div>
 
-                    <!-- Empresa -->
-                    <div>
-                        <label class="block text-gray-300 text-sm mb-2">
-                            Empresa*
-                        </label>
-                        <input type="text" formControlName="empresa"
-                            class="w-full px-4 py-3 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                            [class.border-red-500]="benefitsForm.get('empresa')?.invalid && benefitsForm.get('empresa')?.touched" />
-                        <div *ngIf="benefitsForm.get('empresa')?.invalid && benefitsForm.get('empresa')?.touched"
-                            class="text-red-400 text-sm mt-1">
-                            Este campo es requerido
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-300 text-sm mb-2">Correo*</label>
+                            <input type="email" formControlName="correo"
+                                class="w-full px-4 py-3 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                [class.border-red-500]="benefitsForm.get('correo')?.invalid && benefitsForm.get('correo')?.touched" />
+                            <div *ngIf="benefitsForm.get('correo')?.invalid && benefitsForm.get('correo')?.touched"
+                                class="text-red-400 text-sm mt-1">
+                                <span *ngIf="benefitsForm.get('correo')?.errors?.['required']">Este campo es
+                                    requerido</span>
+                                <span *ngIf="benefitsForm.get('correo')?.errors?.['email']">Ingrese un correo
+                                    válido</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 text-sm mb-2">Teléfono*</label>
+                            <input type="text" formControlName="telefono"
+                                class="w-full px-4 py-3 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                                [class.border-red-500]="benefitsForm.get('telefono')?.invalid && benefitsForm.get('telefono')?.touched" />
+                            <div *ngIf="benefitsForm.get('telefono')?.invalid && benefitsForm.get('telefono')?.touched"
+                                class="text-red-400 text-sm mt-1">Este campo es requerido</div>
                         </div>
                     </div>
 
-                    <!-- Mensaje -->
                     <div>
-                        <label class="block text-gray-300 text-sm mb-2">
-                            Mensaje*
-                        </label>
-                        <textarea formControlName="mensaje" rows="5" maxlength="200"
+                        <label class="block text-gray-300 text-sm mb-2">Mensaje*</label>
+                        <textarea formControlName="mensaje" rows="4" maxlength="200"
                             class="w-full px-4 py-3 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
                             [class.border-red-500]="benefitsForm.get('mensaje')?.invalid && benefitsForm.get('mensaje')?.touched"></textarea>
                         <div class="flex justify-between items-center mt-1">
                             <div *ngIf="benefitsForm.get('mensaje')?.invalid && benefitsForm.get('mensaje')?.touched"
-                                class="text-red-400 text-sm">
-                                Este campo es requerido
-                            </div>
+                                class="text-red-400 text-sm">Este campo es requerido</div>
                             <div class="text-gray-400 text-sm ml-auto">
                                 {{benefitsForm.get('mensaje')?.value?.length || 0}}/200
                             </div>
                         </div>
                     </div>
 
-                    <!-- Botón de envío -->
                     <div class="text-center pt-4">
-                        <button type="submit" [disabled]="benefitsForm.invalid"
-                            class="bg-naranjaAs hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-md text-lg transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
-                            Quiero sumarme
+                        <button type="submit" [disabled]="benefitsForm.invalid || isLoading" class="w-full flex justify-center items-center py-3 px-6 rounded-lg text-white font-bold transition-all
+                               bg-red-600 hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed">
+
+                            @if (isLoading) {
+                            <svg class="animate-spin h-5 w-5 mr-3 text-white" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                </path>
+                            </svg>
+                            <span>Enviando...</span>
+                            } @else {
+                            <span>Quiero sumarme</span>
+                            }
                         </button>
                     </div>
                 </form>
             </div>
         </div>
+    </div>
+</div>

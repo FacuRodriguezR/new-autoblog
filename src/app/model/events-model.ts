@@ -2,7 +2,8 @@ interface EventItem {
     title: string;
     date: string;
     location: string;
-    image: string;
+    image: string;       // Imagen para Desktop
+    imageMobile: string; // Nueva: Imagen para Mobile
 }
 
 interface EventsCarousel {

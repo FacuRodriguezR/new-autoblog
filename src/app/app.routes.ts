@@ -21,12 +21,12 @@ export const routes: Routes = [
         component: EventsComponent
     },
     {
-        path: 'event/:slug',
-        component: EventComponent
-    },
-    {
         path: 'tips',
         component: TipsComponent
+    },
+    {
+        path: 'event/:slug',
+        component: EventComponent
     },
     {
         path: 'tip/:slug',

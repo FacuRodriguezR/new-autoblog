@@ -5,7 +5,7 @@
     "category": "Tips",
     "title": "¿Qué tipo de aceite lleva mi auto? Guía para elegir el correcto",
     "subtitle": "Elegir el lubricante adecuado es la decisión más importante para el rendimiento y la vida útil de tu motor.",
-    "mainImage": "assets/images/tips/aceite.png",
+    "mainImage": "assets/images/tips/cambioaceite2.jpg",
     "date": "2026-03-25",
     "contentBlocks": [
       {
@@ -72,11 +72,7 @@
         "type": "paragraph",
         "text": "En invierno, es crucial estar preparado para las diferentes condiciones climáticas, especialmente si sos amante de visitar la montaña. Una de las herramientas más importantes para mantener la seguridad en la ruta son las cadenas para neumáticos."
       },
-      {
-        "type": "image",
-        "url": "/assets/images/tips/PonerCadenasNieve.jpeg",
-        "caption": "Seguridad ante todo en caminos con nieve."
-      },
+
       {
         "type": "heading",
         "text": "Pasos para colocar las cadenas correctamente"
@@ -134,18 +130,14 @@
     "category": "Tips",
     "title": "¿Cómo cambiar tu neumático? Guía práctica paso a paso",
     "subtitle": "Aprendé a cambiar un neumático de forma segura con estos consejos y recomendaciones esenciales para todo conductor.",
-    "mainImage": "/assets/images/tips/cambioneumatico.png",
+    "mainImage": "/assets/images/tips/cambiarunneumatico.jpg",
     "date": "2026-03-25",
     "contentBlocks": [
       {
         "type": "paragraph",
         "text": "Cambiar un neumático puede parecer complicado si nunca lo hiciste, pero con la guía paso a paso adecuada es una tarea sencilla y segura. Estar preparado te dará la tranquilidad necesaria ante cualquier imprevisto en la ruta."
       },
-      {
-        "type": "image",
-        "url": "/assets/images/tips/cambioneumatico.png",
-        "caption": "Mantené siempre tu kit de auxilio en condiciones."
-      },
+
       {
         "type": "heading",
         "text": "1. Estacioná en un lugar seguro"
@@ -230,11 +222,7 @@
         "type": "paragraph",
         "text": "El verano en Argentina trae vacaciones, escapadas y rutas más transitadas. Las altas temperaturas, sumadas a los largos trayectos, pueden afectar tanto a los conductores como a los vehículos. Te compartimos 10 consejos útiles a tener en cuenta antes de salir a la ruta."
       },
-      {
-        "type": "image",
-        "url": "/assets/images/tips/tips-viaje.jpg",
-        "caption": "Revisá tu vehículo antes de emprender un viaje largo."
-      },
+
       {
         "type": "heading",
         "text": "Puntos clave de revisión mecánica"
