@@ -14,31 +14,38 @@ export class FormBenefitComponent {
   benefitsForm: FormGroup;
   public mailService = inject(MailService)
 
+  isLoading = false;
+
   constructor(private fb: FormBuilder) {
     this.benefitsForm = this.fb.group({
-      nombreApellido: ['', Validators.required],
-      correo: ['', [Validators.required, Validators.email]],
       empresa: ['', Validators.required],
+      cuit: ['', [Validators.required, Validators.maxLength(13)]],
+      nombreApellido: ['', Validators.required],
+      cargo: ['', Validators.required],
+      correo: ['', [Validators.required, Validators.email]],
+      telefono: ['', [Validators.required, Validators.maxLength(14)]],
       mensaje: ['', [Validators.required, Validators.maxLength(200)]]
     });
   }
 
   onSubmit() {
-    if (this.benefitsForm.valid) {
-      console.log('Formulario enviado:', this.benefitsForm.value);
+    if (this.benefitsForm.valid && !this.isLoading) {
+      this.isLoading = true; // Iniciamos el loading
 
-      this.mailService.enviarEmail(this.benefitsForm.value).subscribe((data) => {
-        console.log(this.benefitsForm.value);
-      })
-
-      //? Aca agregamos la lógica para enviar el formulario
-      alert('Formulario enviado exitosamente');
-      this.benefitsForm.reset();
-    } else {
-
-      Object.keys(this.benefitsForm.controls).forEach(key => {
-        this.benefitsForm.get(key)?.markAsTouched();
+      this.mailService.enviarEmail(this.benefitsForm.value).subscribe({
+        next: () => {
+          this.isLoading = false; // Apagamos el loading
+          alert('Formulario enviado exitosamente');
+          this.benefitsForm.reset();
+        },
+        error: (err) => {
+          this.isLoading = false; // Apagamos el loading incluso si hay error
+          console.error(err);
+          alert('Hubo un error al enviar el formulario');
+        }
       });
+    } else {
+      this.benefitsForm.markAllAsTouched();
     }
   }
 }
