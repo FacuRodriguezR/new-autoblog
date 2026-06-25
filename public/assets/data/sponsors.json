@@ -12,7 +12,7 @@
   { "id": 8, "brand": "AXION", "image": "assets/sponsors/Sponsors_AXION.png" },
   { "id": 9, "brand": "Castelbianco", "image": "assets/sponsors/Sponsors_Castelbianco.png" },
   { "id": 10, "brand": "CATA", "image": "assets/sponsors/Sponsors_CATA.png" },
-  { "id": 11, "brand": "CDM", "image": "assets/sponsors/Sponsors_CDM.png" },
+
   { "id": 12, "brand": "Cigma", "image": "assets/sponsors/sponsors_cigma.png" },
   { "id": 13, "brand": "Club de Campo", "image": "assets/sponsors/sponsors_club_de_campo.png" },
   { "id": 14, "brand": "Cluboreal", "image": "assets/sponsors/Sponsors_cluboreal.png" },
@@ -26,12 +26,18 @@
   { "id": 22, "brand": "Herboteca", "image": "assets/sponsors/Sponsors_Herboteca.png" },
   { "id": 23, "brand": "Hilton", "image": "assets/sponsors/Sponsors_Hilton.png" },
   { "id": 24, "brand": "Hotel Condor", "image": "assets/sponsors/Sponsors_Hotel_Condor.png" },
-  { "id": 25, "brand": "IFDC", "image": "assets/sponsors/Sponsors_IFDC.png" },
+  {
+    "id": 25,
+    "brand": "Socios Conductores",
+    "image": "assets/sponsors/sponsors_SociosConductores.png"
+  },
+
   { "id": 26, "brand": "IMPSA", "image": "assets/sponsors/Sponsors_IMPSA.png" },
   { "id": 27, "brand": "La Piramide", "image": "assets/sponsors/Sponsors_La Piramide.png" },
-  { "id": 28, "brand": "Libertad", "image": "assets/sponsors/sponsors_Libertad.png" },
+
+  { "id": 28, "brand": "365 Clarín", "image": "assets/sponsors/sponsors_365.png" },
   { "id": 29, "brand": "Los Andes Pass", "image": "assets/sponsors/Sponsors_LosAndesPass.png" },
-  { "id": 30, "brand": "Modesto", "image": "assets/sponsors/Sponsors_Modesto.png" },
+
   { "id": 31, "brand": "Naranja X", "image": "assets/sponsors/Sponsors_NaranjaX.png" },
   { "id": 32, "brand": "O David", "image": "assets/sponsors/Sponsors_O_David.png" },
   { "id": 33, "brand": "ON", "image": "assets/sponsors/Sponsors_ON.png" },
@@ -42,5 +48,6 @@
   { "id": 38, "brand": "Universitaria", "image": "assets/sponsors/Sponsors_Universitaria.png" },
   { "id": 39, "brand": "URC", "image": "assets/sponsors/Sponsors_URC.png" },
   { "id": 40, "brand": "Bonda", "image": "assets/sponsors/sponsors_Bonda.png" },
-  { "id": 41, "brand": "Nomade", "image": "assets/sponsors/sponsors_nomade.png" }
+  { "id": 41, "brand": "Nomade", "image": "assets/sponsors/sponsors_nomade.png" },
+  { "id": 42, "brand": "McDonald's", "image": "assets/sponsors/logo-mcDonalds.svg" }
 ]

@@ -2,13 +2,14 @@ import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef,
 
 import { CarouselService } from '../../services/carousel.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from "@angular/router";
 
 
 
 
 @Component({
   selector: 'app-carousel-home',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './carousel-home.component.html',
   styleUrl: './carousel-home.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
