@@ -12,7 +12,7 @@ import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselHomeComponent, CarouselNotesComponent, CarouselBrandsComponent, FormBenefitComponent],
+  imports: [CarouselHomeComponent, CarouselNotesComponent, CarouselBrandsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

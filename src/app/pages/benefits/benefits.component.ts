@@ -29,10 +29,10 @@ export class BenefitsComponent implements AfterViewInit {
 
   private appService = inject(AppService);
   private cdRef = inject(ChangeDetectorRef);
-  private route = inject(ActivatedRoute); // 1. Inyectamos ActivatedRoute
+  private route = inject(ActivatedRoute);
 
-  // 2. Referencia al elemento que queremos enfocar
-  @ViewChild('bloqueObjetivo') bloqueObjetivo!: ElementRef;
+
+  @ViewChild('bloqueObjetivo', { read: ElementRef }) bloqueObjetivo!: ElementRef;
 
   sponsors: any[] = [];
   currentSponsor: any;
@@ -43,7 +43,7 @@ export class BenefitsComponent implements AfterViewInit {
   ngOnInit() {
     this.getSponsor();
 
-    // 3. Leemos si la URL trae ?src=qr
+
     this.route.queryParams.subscribe(params => {
       if (params['src'] === 'qr') {
         this.isFromQr = true;
@@ -52,14 +52,14 @@ export class BenefitsComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // 4. Si viene del QR, hacemos scroll suave cuando la vista esté lista
-    if (this.isFromQr && this.bloqueObjetivo) {
+    if (this.isFromQr && this.bloqueObjetivo?.nativeElement) {
       setTimeout(() => {
-        this.bloqueObjetivo.nativeElement.scrollIntoView({
+
+        this.bloqueObjetivo.nativeElement?.scrollIntoView?.({
           behavior: 'smooth',
           block: 'start'
         });
-      }, 300); // El timeout asegura que OnPush y el DOM hayan terminado de renderizar
+      }, 300);
     }
   }
 
