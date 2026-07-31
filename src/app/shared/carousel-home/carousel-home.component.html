@@ -4,19 +4,26 @@
         <div class="flex transition-transform duration-500"
             [style.transform]="'translateX(-' + currentIndex() * 100 + '%)'">
             @for (event of eventsInput(); track event.title) {
-            <div class="min-w-full relative">
-                <picture>
-                    <source media="(max-width: 767px)" [srcset]="event.imageMobile">
+            <div class="min-w-full relative group">
+                <!-- Contenedor con link opcional -->
+                <a [routerLink]="event.link ? event.link : null" [class.cursor-pointer]="event.link"
+                    [class.pointer-events-none]="!event.link" class="block relative">
 
-                    <img [src]="event.image" [alt]="event.title"
-                        class="w-full h-70 md:h-96 lg:h-[32rem] object-cover" />
-                </picture>
+                    <picture>
+                        <source media="(max-width: 767px)" [srcset]="event.imageMobile">
+                        <img [src]="event.image" [alt]="event.title"
+                            class="w-full h-70 md:h-96 lg:h-[32rem] object-cover" />
+                    </picture>
 
-                <div
-                    class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
-                    <h3 class="text-lg font-bold">{{ event.title }}</h3>
-                    <p class="text-sm">{{ event.date }}</p>
-                </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
+                        <h3 class="text-lg font-bold">{{ event.title }}</h3>
+                        <p class="text-sm">{{ event.date }}</p>
+                        @if (event.location) {
+                        <p class="text-xs opacity-80">{{ event.location }}</p>
+                        }
+                    </div>
+                </a>
             </div>
             }
         </div>

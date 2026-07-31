@@ -28,8 +28,8 @@ export class HomeComponent {
 
   carouselEvents: EventItem[] = [
     {
-      title: 'Feria del libro',
-      date: '26/11 al 15/12 · 18 a 23h',
+      title: '',
+      date: '',
       location: 'Mendoza, Argentina',
       image: 'assets/images/carousel/140426_ABlog_pc.webp',
       imageMobile: 'assets/images/carousel/140426_ABlog_mob.webp', // Agregá la ruta de mobile
@@ -39,7 +39,8 @@ export class HomeComponent {
       date: '',
       location: 'La Barraca Mall, Mendoza',
       image: 'assets/images/carousel/010426_nar_pc.webp',
-      imageMobile: 'assets/images/carousel/010426_nar_mob.webp', // Agregá la ruta de mobile
+      imageMobile: 'assets/images/carousel/010426_nar_mob.webp',
+      link: '/mcdonalds' // Agregá la ruta de mobile
     },
 
   ];
