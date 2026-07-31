@@ -1,5 +1,14 @@
 <app-carousel-home [eventsInput]="carouselEvents"></app-carousel-home>
 <div class="container-main">
+    <div class="mt-5">
+        <h2 class="text-2xl text-azulAs mx-4">Consejos útiles</h2>
+        <app-carousel-notes [notesCarousel]="novedades" [tipoCarousel]="tipoNovedades"></app-carousel-notes>
+    </div>
+    <div class="mt-5">
+        <h2 class="text-2xl text-azulAs mx-4">Promociones & Beneficios</h2>
+        <app-carousel-brands [brands]="colaboradores"></app-carousel-brands>
+
+    </div>
     <div class="flex justify-center m-4">
         <div class="card bg-base-100 image-full w-full shadow-sm rounded-xl overflow-hidden h-60 md:h-150">
             <figure>
@@ -16,17 +25,10 @@
         <h2 class="text-2xl text-azulAs mx-4">Últimos eventos</h2>
         <app-carousel-notes [notesCarousel]="events" [tipoCarousel]="tipoEvent"></app-carousel-notes>
     </div>
-    <div class="mt-5">
-        <h2 class="text-2xl text-azulAs mx-4">Consejos útiles</h2>
-        <app-carousel-notes [notesCarousel]="novedades" [tipoCarousel]="tipoNovedades"></app-carousel-notes>
-    </div>
 
-    <div class="mt-5">
-        <h2 class="text-2xl text-azulAs mx-4">Promociones & Beneficios</h2>
-        <app-carousel-brands [brands]="colaboradores"></app-carousel-brands>
 
-    </div>
-    <div class="mt-5">
+
+    <!-- <div class="mt-5">
         <app-form-benefit></app-form-benefit>
-    </div>
+    </div> -->
 </div>
