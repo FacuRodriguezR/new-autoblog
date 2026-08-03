@@ -5,8 +5,12 @@ import {
   Component,
   ElementRef,
   ViewChild,
-  inject
+  inject,
+  DestroyRef,
+  PLATFORM_ID // 👈 1. Importar PLATFORM_ID
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common'; // 👈 2. Importar isPlatformBrowser
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../services/app.service';
 import { FormBenefitComponent } from '../../shared/form-benefit/form-benefit.component';
@@ -26,11 +30,11 @@ const BENEFICIOS_ESTANDAR = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BenefitsComponent implements AfterViewInit {
-
   private appService = inject(AppService);
   private cdRef = inject(ChangeDetectorRef);
   private route = inject(ActivatedRoute);
-
+  private destroyRef = inject(DestroyRef);
+  private platformId = inject(PLATFORM_ID); // 👈 3. Inyectar PLATFORM_ID
 
   @ViewChild('bloqueObjetivo', { read: ElementRef }) bloqueObjetivo!: ElementRef;
 
@@ -38,44 +42,43 @@ export class BenefitsComponent implements AfterViewInit {
   currentSponsor: any;
   beneficios = BENEFICIOS_ESTANDAR;
 
-  private isFromQr = false;
-
   ngOnInit() {
     this.getSponsor();
-
-
-    this.route.queryParams.subscribe(params => {
-      if (params['src'] === 'qr') {
-        this.isFromQr = true;
-      }
-    });
   }
 
   ngAfterViewInit() {
-    if (this.isFromQr && this.bloqueObjetivo?.nativeElement) {
-      setTimeout(() => {
-
-        this.bloqueObjetivo.nativeElement?.scrollIntoView?.({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }, 300);
+    // 👈 4. Validar que estemos ejecutando el código en el NAVEGADOR
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
     }
+
+    this.route.queryParams
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(params => {
+        if (params['src'] === 'qr') {
+          setTimeout(() => {
+            // Verificación segura adicional con Optional Chaining
+            this.bloqueObjetivo?.nativeElement?.scrollIntoView?.({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }, 100);
+        }
+      });
   }
 
   openBenefits(sponsor: any) {
     this.currentSponsor = sponsor;
-    const modal = document.getElementById('benefits_modal') as HTMLDialogElement;
-    modal?.showModal();
+    if (isPlatformBrowser(this.platformId)) {
+      const modal = document.getElementById('benefits_modal') as HTMLDialogElement;
+      modal?.showModal();
+    }
   }
 
   getSponsor() {
-    this.appService.getSponsors().subscribe(
-      data => {
-        this.sponsors = data;
-        console.log(this.sponsors);
-        this.cdRef.markForCheck();
-      }
-    );
+    this.appService.getSponsors().subscribe(data => {
+      this.sponsors = data;
+      this.cdRef.markForCheck();
+    });
   }
 }
