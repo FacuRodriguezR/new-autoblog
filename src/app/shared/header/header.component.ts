@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,36 +9,37 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
+  private cdr = inject(ChangeDetectorRef);
 
   showHeader = true;
   showMobileMenu = false;
   private lastScrollTop = 0;
-  private scrollThreshold = 5; // Píxeles mínimos para detectar scroll
+  private scrollThreshold = 5;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    // Detectar dirección del scroll
     if (Math.abs(scrollTop - this.lastScrollTop) < this.scrollThreshold) {
-      return; // Ignorar scrolls muy pequeños
+      return;
     }
 
     if (scrollTop > this.lastScrollTop && scrollTop > 100) {
-      // Scroll hacia abajo - ocultar header
       this.showHeader = false;
-      this.showMobileMenu = false; // Cerrar menú mobile si está abierto
+      this.showMobileMenu = false;
     } else {
-      // Scroll hacia arriba - mostrar header
       this.showHeader = true;
     }
 
     this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    this.cdr.markForCheck();
   }
 
   toggleMenu() {
     this.showMobileMenu = !this.showMobileMenu;
   }
 
-
+  closeMenu() {
+    this.showMobileMenu = false;
+  }
 }

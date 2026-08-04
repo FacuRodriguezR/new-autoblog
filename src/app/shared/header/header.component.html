@@ -23,14 +23,34 @@
                 </button>
             </div>
         </div>
+
+        <!-- Menú Móvil Centrado -->
         <div class="mobile-menu md:hidden transition-all duration-300" [class.hidden]="!showMobileMenu">
-            <ul class="mt-4 space-y-4">
-                <li><a routerLink="/tips" class="block px-4 py-2 text-white bg-gray-900 rounded">Consejos útiles</a>
+            <ul class="mt-4 pt-4 pb-2 space-y-2 border-t border-white/10 flex flex-col items-center w-full">
+                <li class="w-full">
+                    <a routerLink="/tips" (click)="closeMenu()"
+                        class="block w-full text-center px-4 py-2 text-white hover:bg-white/10 rounded transition">
+                        Consejos útiles
+                    </a>
                 </li>
-                <li><a routerLink="events" class="block px-4 py-2 text-white bg-gray-900 rounded">Eventos</a></li>
-                <li><a routerLink="mcdonalds" class="block px-4 py-2 text-white bg-gray-900 rounded">Novedades</a></li>
-                <li><a routerLink="benefits" class="block px-4 py-2 text-white bg-gray-900 rounded">Promociones y
-                        Beneficios</a></li>
+                <li class="w-full">
+                    <a routerLink="events" (click)="closeMenu()"
+                        class="block w-full text-center px-4 py-2 text-white hover:bg-white/10 rounded transition">
+                        Eventos
+                    </a>
+                </li>
+                <li class="w-full">
+                    <a routerLink="mcdonalds" (click)="closeMenu()"
+                        class="block w-full text-center px-4 py-2 text-white hover:bg-white/10 rounded transition">
+                        Novedades
+                    </a>
+                </li>
+                <li class="w-full">
+                    <a routerLink="benefits" (click)="closeMenu()"
+                        class="block w-full text-center px-4 py-2 text-white hover:bg-white/10 rounded transition">
+                        Promociones y Beneficios
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
